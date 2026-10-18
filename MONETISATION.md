@@ -66,3 +66,8 @@ Si aucun des trois : pivoter vers contenu/consulting plutôt que construire plus
 Décisions prises : marché **international** (anglais), **pas de données réelles** disponibles, **service d'abord** pour obtenir des données.
 MVP disponible dans `latepay/` (voir `README.md`) : prévision de retard par facture, intervalle conforme, arène walk-forward avec abstention. Testé uniquement sur données synthétiques.
 Prochaine étape : démarcher 10 PME/agences (US/UK/UE) avec l'offre « audit gratuit de 20 factures en échange d'un cas d'étude », puis facturer l'audit suivant.
+
+## Site (cheldon.fr)
+
+Code dans `site/` (page de vente, formulaire de pilote → Cloudflare Pages Function + KV, notice de confidentialité à compléter). Déploiement : donner `CODEX_PROMPT.md` à Codex.
+Avant la mise en ligne : compléter `site/privacy.html` (responsable de traitement, durées). Paiement Stripe à ajouter après le premier pilote réussi.

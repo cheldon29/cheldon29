@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Late-payment forecasts for B2B invoices — cheldon.fr</title>
+<meta name="description" content="Find out which open invoices will be paid late, with an honest confidence range. The forecast says 'can't tell' when it can't beat a simple rule.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%230f5132'/><path d='M7 20l6-6 4 4 8-9' stroke='white' stroke-width='3' fill='none'/></svg>">
+<style>
+:root{--bg:#fbfaf7;--fg:#1c1b19;--mut:#5f5c55;--line:#e4e0d6;--acc:#0f5132;--accfg:#fff;--card:#fff}
+@media(prefers-color-scheme:dark){:root{--bg:#141412;--fg:#f1efe9;--mut:#a8a496;--line:#2d2c27;--acc:#58c08a;--accfg:#0b1f15;--card:#1b1b18}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:17px/1.6 system-ui,-apple-system,Segoe UI,sans-serif}
+.w{max-width:880px;margin:0 auto;padding:0 20px}
+header{padding:22px 0;display:flex;justify-content:space-between;align-items:center}
+header b{font-weight:700}header a{color:var(--mut);text-decoration:none;font-size:15px}
+h1{font-size:clamp(32px,6vw,52px);line-height:1.1;margin:40px 0 16px;letter-spacing:-.02em}
+h2{font-size:28px;margin:64px 0 12px;letter-spacing:-.01em}
+p.lead{font-size:20px;color:var(--mut);max-width:640px}
+.btn{display:inline-block;background:var(--acc);color:var(--accfg);padding:13px 22px;border-radius:9px;text-decoration:none;font-weight:600;border:0;font-size:17px;cursor:pointer}
+.grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px}
+.card h3{margin:0 0 6px;font-size:19px}.card p{margin:6px 0;color:var(--mut);font-size:16px}
+.price{font-size:28px;font-weight:700;margin:4px 0}
+pre{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px;overflow:auto;font-size:14px;line-height:1.5}
+form{display:grid;gap:12px;max-width:520px}
+label{font-size:15px;color:var(--mut);display:grid;gap:4px}
+input,select,textarea{font:inherit;padding:11px 12px;border-radius:8px;border:1px solid var(--line);background:var(--card);color:var(--fg)}
+.hp{position:absolute;left:-9999px}
+#msg{min-height:1.5em;font-weight:600}
+footer{margin:80px 0 40px;padding-top:20px;border-top:1px solid var(--line);color:var(--mut);font-size:14px}
+a{color:var(--acc)}
+</style>
+</head>
+<body>
+<div class="w">
+<header><b>cheldon.fr</b><a href="#pilot">Free pilot</a></header>
+
+<h1>Which of your open invoices will be paid late?</h1>
+<p class="lead">A per-invoice forecast of days late, with an honest confidence range, built from your own payment history. When it can't beat a simple rule, it says so instead of guessing.</p>
+<p><a class="btn" href="#pilot">Get a free pilot audit</a></p>
+
+<h2>How it works</h2>
+<div class="grid">
+<div class="card"><h3>1. Send a CSV</h3><p>Past invoices: customer, amount, issue, due and paid dates. Customer names can be anonymised.</p></div>
+<div class="card"><h3>2. We test it on your history</h3><p>A walk-forward test on invoices the model has never seen, compared with a simple baseline.</p></div>
+<div class="card"><h3>3. You get a one-page audit</h3><p>How reliable the forecast is for you, and which open invoices to chase first.</p></div>
+</div>
+
+<h2>Honest by design</h2>
+<p>Most tools promise "95% accuracy". We show the test instead. Forecasts are withheld for customers with too little history, and for your whole account if the model doesn't beat the baseline. Example of the reliability block in every audit (synthetic demo data):</p>
+<pre>Arena on 600 unseen invoices
+  MAE model     : 5.60 days
+  MAE baseline  : 7.48 days (customer's median past lateness)
+  Interval cover: 80.8% (target 80%)
+  Verdict       : MODEL ACTIVE</pre>
+<p style="color:var(--mut);font-size:15px">Demo figures come from simulated data and are not a promise of results on yours.</p>
+
+<h2>Pricing</h2>
+<div class="grid">
+<div class="card"><h3>Pilot</h3><div class="price">Free</div><p>Audit on up to a few hundred invoices, in exchange for brief feedback. Limited places.</p><p><a href="#pilot">Apply</a></p></div>
+<div class="card"><h3>Audit</h3><div class="price">from $500</div><p>12 months of history, full reliability report, prioritised chase list.</p><p><a href="#pilot">Request</a></p></div>
+<div class="card"><h3>Monthly refresh</h3><div class="price">$49–99 / mo</div><p>Updated forecasts on your open invoices every month.</p><p><a href="#pilot">Request</a></p></div>
+</div>
+
+<h2 id="pilot">Apply for the free pilot</h2>
+<form id="f">
+<label>Work email<input name="email" type="email" required autocomplete="email"></label>
+<label>Company<input name="company" maxlength="120" autocomplete="organization"></label>
+<label>Invoices sent in the last 12 months
+<select name="volume"><option>Under 100</option><option>100–500</option><option>500–2,000</option><option>2,000+</option></select></label>
+<label>Anything we should know? (optional)<textarea name="note" rows="3" maxlength="500"></textarea></label>
+<input class="hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+<label style="grid-template-columns:auto 1fr;align-items:start;gap:10px"><input type="checkbox" name="consent" required>
+<span>I agree that my details are used to contact me about the pilot. See the <a href="/privacy.html">privacy notice</a>.</span></label>
+<button class="btn" type="submit">Send application</button>
+<div id="msg" role="status"></div>
+</form>
+
+<footer>© <span id="y"></span> cheldon.fr · <a href="/privacy.html">Privacy</a> · Forecasts are statistical estimates, not guarantees.</footer>
+</div>
+<script>
+document.getElementById('y').textContent=new Date().getFullYear();
+const f=document.getElementById('f'),m=document.getElementById('msg');
+f.addEventListener('submit',async e=>{
+  e.preventDefault();m.textContent='Sending…';
+  const d=Object.fromEntries(new FormData(f));d.consent=!!d.consent;
+  try{
+    const r=await fetch('/api/pilot',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify(d)});
+    const j=await r.json().catch(()=>({}));
+    if(r.ok){m.textContent='Thanks — we will reply by email.';f.reset();}
+    else m.textContent=j.error||'Something went wrong. Please try again.';
+  }catch(_){m.textContent='Network error. Please try again.';}
+});
+</script>
+</body>
+</html>
