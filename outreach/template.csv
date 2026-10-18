@@ -1,0 +1,4 @@
+invoice_id,customer,amount,issue_date,due_date,paid_date
+INV-0001,Customer A,1200.00,2025-01-05,2025-02-04,2025-02-10
+INV-0002,Customer B,860.50,2025-01-12,2025-02-11,2025-02-09
+INV-0003,Customer A,2400.00,2025-02-03,2025-03-05,

@@ -23,3 +23,5 @@ CSV columns: `invoice_id, customer, amount, issue_date, due_date, paid_date` (em
 - Unpaid invoices are excluded from training (no censoring/survival handling yet).
 - No drift monitor yet (`make_invoices(drift_at=...)` exists to build one).
 - Validated only on synthetic data; real-data results will differ. Never sell accuracy figures from the demo.
+
+Sample input format: `outreach/template.csv`. Prospecting notes: `outreach/TARGETS.md`.

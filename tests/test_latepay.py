@@ -46,3 +46,10 @@ def test_audit_report_renders():
 def test_intervals_inflated_to_target_coverage():
     m = LatePayModel().fit(make_invoices(seed=1, amount_effect=6.0))
     assert m.report.coverage >= 0.78
+
+
+def test_clear_error_on_missing_columns():
+    import pandas as pd
+    import pytest
+    with pytest.raises(ValueError, match="missing CSV columns"):
+        LatePayModel().fit(pd.DataFrame({"customer": ["a"]}))

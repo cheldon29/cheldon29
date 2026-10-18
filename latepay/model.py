@@ -32,7 +32,13 @@ class ArenaReport:
         )
 
 
+REQUIRED = ["invoice_id", "customer", "amount", "issue_date", "due_date", "paid_date"]
+
+
 def _prepare(df):
+    missing = [c for c in REQUIRED if c not in df.columns]
+    if missing:
+        raise ValueError(f"missing CSV columns: {', '.join(missing)} (expected: {', '.join(REQUIRED)})")
     df = df.copy()
     for col in ("issue_date", "due_date", "paid_date"):
         if col in df:
