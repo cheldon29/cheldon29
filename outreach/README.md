@@ -14,7 +14,7 @@ I'm looking for 5 businesses for a free pilot: you send an export of past invoic
 
 In return I'd ask for a short testimonial if it's useful. If it isn't, I'll tell you so.
 
-Interested? Happy to start with 20 invoices to show the format.
+Interested? To test it properly I need at least ~200 paid invoices of history, plus your currently open invoices (any number) to forecast. I can send you the CSV template first.
 
 {{your_name}}
 

@@ -1,13 +1,13 @@
 # Who to contact first
 
-## Best-fit profiles (need 150+ B2B invoices over the last 12 months, 15–60 day terms)
+## Best-fit profiles (need 200+ paid B2B invoices of history, ideally over 12-24 months, 15–60 day terms)
 1. **Small agencies** (marketing, web, design, dev): few big clients, chronic late payers, owner watches cash weekly.
 2. **B2B wholesalers / distributors** with dozens of trade accounts.
 3. **Freelance collectives and consultancies** invoicing mid-size companies.
 4. **Staffing / recruitment firms**: high invoice volume, thin margins.
 5. **Bookkeepers and fractional CFOs**: they serve many SMEs, so one pilot can become a channel. Best long-term lever.
 
-Weak fits: B2C shops (paid at checkout), businesses with under ~100 invoices a year (too little history for a trustworthy test).
+Weak fits: B2C shops (paid at checkout), businesses with fewer than ~200 paid invoices of history in total (the tool refuses to run below 200: too little for a trustworthy test).
 
 ## Where to find them (your own accounts, one personalised message each)
 - Your existing network and past clients: ask who handles invoicing and chases payments.
