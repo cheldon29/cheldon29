@@ -60,3 +60,9 @@ Si aucun des trois : pivoter vers contenu/consulting plutôt que construire plus
 1. Marché cible : France/UE francophone (Pennylane, Qonto) ou international ?
 2. Tu as déjà accès à des données réelles (ton activité, des clients) pour l'audit n°1 ?
 3. Service d'abord (recommandé) ou produit SaaS direct ?
+
+## Statut (mis à jour)
+
+Décisions prises : marché **international** (anglais), **pas de données réelles** disponibles, **service d'abord** pour obtenir des données.
+MVP disponible dans `latepay/` (voir `README.md`) : prévision de retard par facture, intervalle conforme, arène walk-forward avec abstention. Testé uniquement sur données synthétiques.
+Prochaine étape : démarcher 10 PME/agences (US/UK/UE) avec l'offre « audit gratuit de 20 factures en échange d'un cas d'étude », puis facturer l'audit suivant.
