@@ -11,10 +11,19 @@ def main():
     r = sub.add_parser("report", help="train on a CSV of invoices and forecast the unpaid ones")
     r.add_argument("csv", help="columns: invoice_id,customer,amount,issue_date,due_date,paid_date (empty = unpaid)")
     r.add_argument("--out", default="forecast.csv")
+    u = sub.add_parser("audit", help="write a client-ready markdown audit report from a CSV")
+    u.add_argument("csv")
+    u.add_argument("--client", default="Client")
+    u.add_argument("--out", default="audit.md")
     a = p.parse_args()
     if a.cmd == "demo":
         m = LatePayModel().fit(make_invoices())
         print(m.report)
+    elif a.cmd == "audit":
+        import pandas as pd
+        from .audit import build_audit
+        open(a.out, "w").write(build_audit(pd.read_csv(a.csv), a.client))
+        print(f"wrote {a.out}")
     else:
         import pandas as pd
         df = pd.read_csv(a.csv)

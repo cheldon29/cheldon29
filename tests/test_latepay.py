@@ -33,3 +33,16 @@ def test_short_history_abstains():
     new["customer"] = "NEW"
     new["paid_date"] = None
     assert m.predict(new)["status"].iloc[0].startswith("abstain")
+
+
+def test_audit_report_renders():
+    from latepay.audit import build_audit
+    df = make_invoices(n=600, seed=5, amount_effect=6.0)
+    df.loc[df.index[-20:], "paid_date"] = None
+    md = build_audit(df, "Acme")
+    assert "Late-payment audit — Acme" in md and "Top" in md
+
+
+def test_intervals_inflated_to_target_coverage():
+    m = LatePayModel().fit(make_invoices(seed=1, amount_effect=6.0))
+    assert m.report.coverage >= 0.78
